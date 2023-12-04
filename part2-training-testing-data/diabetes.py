@@ -3,21 +3,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_diabetes
 
-'''
-**********CREATE THE MODEL**********
-'''
+data=load_diabetes(as_frame=True)
+data=data.frame
+y=data.target.values
+x=data["bmi"].values
 
-data = pd.read_csv("part2-training-testing-data/blood_pressure_data.csv")
-x = data["Age"].values
-y = data["Blood Pressure"].values
-
-# Create your training and testing datasets:
+# separates the data into training and testing sets
 xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size = .2)
-# Use reshape to turn the x values into 2D arrays:
-xtrain = xtrain.reshape(-1,1)
 
-# Create the model
+# reshape the xtrain data into a 2D array
+xtrain = xtrain.reshape(-1, 1)
+
+# create the linear regression model using the training data
 model = LinearRegression().fit(xtrain, ytrain)
 
 # get the coef_, intercept_ valuesm and r^2 values
@@ -56,11 +55,11 @@ plt.figure(figsize=(5,4))
 plt.scatter(xtrain,ytrain, c="purple", label="Training Data")
 plt.scatter(xtest, ytest, c="blue", label="Testing Data")
 
-plt.scatter(xtest, predict, c="red", label="Predictions")
+#plt.scatter(xtest, predict, c="red", label="Predictions")
 
-plt.xlabel("Age")
-plt.ylabel("Blood Pressure")
-plt.title("Blood Pressure-Age Graph")
+plt.xlabel("BMI")
+plt.ylabel("Diabetes Level")
+plt.title("Diabetes Level-BMI Graph")
 plt.plot(x, coef*x + intercept, c="r", label="Line of Best Fit")
 
 plt.legend()
