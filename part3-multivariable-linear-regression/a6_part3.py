@@ -26,8 +26,8 @@ predict = model.predict(xtest)
 predict = np.around(predict, 2)
 my_prediction=model.predict([[89,10]])
 my_predictio=model.predict([[150,20]])
-print("89k with 10years:"+np.around(my_prediction, 2))
-print("150k with 20years:"+np.around(my_predictio, 2))
+print("89k with 10years:"+str(my_prediction))
+print("150k with 20years:"+str(my_predictio))
 avg_percent_error=0.0
 for index in range(len(xtest)):
     actual = ytest[index] # gets the actual y value from the ytest dataset
