@@ -10,9 +10,12 @@ x = data[["Age", "EstimatedSalary", "Gender"]].values
 y = data["Purchased"].values
 
 # Step 1: Print the values for x and y
+print("age, salary, gender"+ x)
+print("purchased"+y)
 
 # Step 2: Standardize the data using StandardScaler, 
-
+scaler = StandardScaler().fit(x)
+x = scaler.transform(x)
 # Step 3: Transform the data
 
 # Step 4: Split the data into training and testing data
