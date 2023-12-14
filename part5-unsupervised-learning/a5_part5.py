@@ -8,7 +8,7 @@ data = pd.read_csv("part5-unsupervised-learning/customer_data.csv")
 x = data[["Annual Income", "Spending Score"]]
 
 #standardize the data
-x_std = StandardScaler().fit_transform(data)
+x_std = StandardScaler().fit_transform(x)
 
 #the value of k has been defined for you
 k = 5
