@@ -10,8 +10,8 @@ x = data[["Age", "EstimatedSalary", "Gender"]].values
 y = data["Purchased"].values
 
 # Step 1: Print the values for x and y
-print("age, salary, gender"+ x)
-print("purchased"+y)
+print("age, salary, gender"+ str(x))
+print("purchased"+str(y))
 
 # Step 2: Standardize the data using StandardScaler, 
 scaler = StandardScaler().fit(x)
@@ -48,5 +48,7 @@ for index in range(len(x_test)):
         actual = "not purchased"
     else:
         actual = "purchased"
-    print("Purchase prediction: " + y_pred + "Real : " + actual)
+    print("prediction: " + y_pred + " Real : " + actual)
     print("")
+my_prediction=model.predict([[34,56000,1]])
+print("34 year old female 56k per year:"+str(my_prediction))
